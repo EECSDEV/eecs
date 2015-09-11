@@ -1,7 +1,8 @@
-<nav class ="navbar navbar-default" role="navigation">
-
+<nav id="navbar_id" class ="navbar navbar-default" role="navigation">
 	<div class ="navbar-header">
 		<ul class ="nav navbar-nav">
+		<li>國立交通大學電資學士班資訊網</li>
+			<!--<li><%= t("EECS_title")%></li>-->
 			<li> <%= link_to t("Home") , root_url%></li>
 				<% if user_signed_in?%>
 					<li><%= link_to t("Hero") , users_hero_path%></li>

@@ -2,7 +2,7 @@ class CoursePastexamsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_course,:except => [:download]
   before_action :find_adminparam  
-  before_action :user_confirm
+  before_action :user_confirm, :except => [:download]
 
   def index
     @type_list= ["Midterm","Final","Quiz","Homework","Project","others"]
