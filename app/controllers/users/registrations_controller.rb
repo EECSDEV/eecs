@@ -41,7 +41,7 @@ before_filter :configure_permitted_parameters
 
     def configure_permitted_parameters
                 devise_parameter_sanitizer.for(:sign_up).push(:username, :first_name, :last_name , :nick_name , :description , :class_year, :email);
-                devise_parameter_sanitizer.for(:account_update).push(:is_admin,:username, :first_name, :last_name , :nick_name , :description , :class_year, :email);
+                devise_parameter_sanitizer.for(:account_update).push(:is_admin,:username, :first_name, :last_name , :nick_name , :description , :class_year, :email, :avatar);
                 #devise_parameter_sanitizer.sanitize(:sign_up)
         end
 

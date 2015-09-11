@@ -50,6 +50,7 @@ gem "nested_form"
 # carrierwave, upload handler: https://github.com/carrierwaveuploader/carrierwave
 gem "carrierwave"
 gem "mini_magick"
+gem "rmagick"
 
 # Mathjax, can render latex equation: https://github.com/pmq20/mathjax-rails
 gem "mathjax-rails"

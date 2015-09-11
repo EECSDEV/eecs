@@ -18,8 +18,12 @@
   <div class = "field">
     <%= f.label :class_year, t('Class Year')%>
     <p><%= f.select (:class_year),
-         options_for_select((96..120))
+         options_for_select((96..120),@user.class_year)
     %></p>
+  </div>
+  <div class="field">
+    <%= f.label :avatar, t("Avatar") %><br />
+    <%= f.file_field :avatar %>
   </div>
   <div class = "field">
     <%= f.label :description, t("Description") %><br />
