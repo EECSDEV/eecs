@@ -26,4 +26,193 @@
 	z-index:-100;
 	opacity:0.3;
 }
+/*navbar navbar-default*/
+.navbar-header {
+  background: transparent;
+  border: 2px solid white;
+
+}
+
+#navbar_id {
+  background: transparent;
+}
+
+
+/* style for sliding calender */
+
+.black_transparent {
+  background: #000000;
+  position: absolute;
+  opacity: 0.63;
+  left: 0px;
+  bottom: 0px;
+  height: 150px;
+  width: 100%;
+}
+
+#calender_set {
+  background: transparent;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  bottom: 75px;
+  height: 50px;
+  width: 100%;
+  z-index: 0;
+}
+
+#sliding_board {
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  top: 8px;
+  left: 0px;
+  display: inline-block;
+  width: 2000px;
+  height: 40px;
+  z-index: 1;
+
+}
+
+#slide_board_cover_back {
+  background-color: transparent;
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+
+}
+#slide_board_cover_forw {
+  background-color: transparent;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+}
+
+#calender_back {
+  background-color: #f18f5f;
+  display:inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;  
+}
+
+#calender_forw {
+  background-color: #11000f;
+  display:inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;  
+}
+
+.shift_test {
+  background-color: blue;
+  border: 2px solid red;
+  height: 1000px;
+  width: 
+}
+
+#offset {
+  background-color: #bbbbbb;
+  height: 100px;
+  width: 500px;
+}
+
+.date {
+
+  background: transparent;
+  display:inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  top: 5px;
+  line-height: 30px; /* for vertical text alignment */
+  border: 2px solid #ff2f5f;
+  border-radius: 50%;
+  text-align: center;
+  font: 10px Arial, sans-serif;
+  color: white;
+}
+
+#date_1 {
+  background: transparent;
+  position: absolute;
+  left: 60px;
+  top: 5px;
+}
+
+
+
+/* style for currently unstable photo slide show */
+
+#slideshow {
+  position: relative;
+  height: 100px;
+  z-index: -1;
+}
+
+#slideshow .vHolder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  opacity: 0.0;
+}
+
+#slideshow img {
+  width: 100%;
+  height: 100%;
+}
+
+/*#abgne_fade_pic {
+  position: relative;
+  opacity: 50%;
+  border: 1px solid #ccc;
+  z-index: -1;
+}
+#abgne_fade_pic div.ad {
+  position: absolute; /* 讓圖片疊在一起 
+/*  width: 500px;
+  height: 300px;
+
+}
+#abgne_fade_pic .control {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+#abgne_fade_pic .control a {
+  display: inline-block;
+  padding: 3px;
+  margin: 0 3px;
+  width: 16px;
+  color: #fff;
+  background: #000;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+}
+#abgne_fade_pic .control a.on {
+  font-weight: bold;
+  color: #f00;
+}*/
 

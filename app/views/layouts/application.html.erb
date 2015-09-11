@@ -2,25 +2,95 @@
 <html>
 <head>
   <title>Eecs</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "custom.css" %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ 
+  
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="main-container" class="container" >
-	<div class="backimg">
-	<%= image_tag("EECS.jpg") %>	
+
+	<div id="slideshow">
+  		<div class="vHolder" class="active">
+    		<a href="#"><%= image_tag('paris_1.jpg')%></a>
+  		</div>
+  		<div class="vHolder">
+   		 	<a href="#"><%= image_tag('roland_garros_1.jpg')%></a>
+  		</div>
+  		<div class="vHolder">
+    		<a href="#"><%= image_tag('paris_2.jpg')%></a>
+  		</div>
+  		<div class="vHolder">
+   			<a href="#"><%= image_tag('roland_garros_2.jpg')%></a>
+  		</div>
+  		<div class="vHolder">
+   			<a href="#"><%= image_tag('paris_3.jpg')%></a>
+  		</div>
 	</div>
-	<%= render :partial =>  'shared/navigation'%>
-	<%= render   'layouts/messages'%>	
-	<%= yield %>
-
- 
-
+	<!-- <div id="abgne_fade_pic">	
+		<div class="ad"><%= image_tag('songjoe_2013.jpg')%></div> 
+		<div class="ad"><%= image_tag('eecscamp_2014_lightball.jpg')%></div>
+		<div class="ad"><%= image_tag('songjoe_2014.jpg')%></div>
+		<div class="ad"><%= image_tag('eecscamp_2015_fireball.jpg')%></div>				
+		<div class="ad"><%= image_tag('songjoe_2015.jpg')%></div>
+	</div> -->
+	<div id="main-container" class="container" >	
+		<!-- <div class="backimg">	
+			<%= image_tag("EECS.jpg") %>
+		</div> -->
+		<%= render :partial =>  'shared/navigation'%>
+		<%= render   'layouts/messages'%>	
+		<%= yield %>
 	</div>
-
-
-
+	<!--sliding calender-->
+		<!--main calender set (include everything concerning calender)-->
+		<div class="black_transparent"></div>
+		<div id="calender_set">	
+			<div id="slide_board_cover_back" class="slide_board_cover">
+				<div id="calender_back" class="calender_control"></div>
+			</div>
+			<div id="sliding_board">
+				<div id="date_1" class="date">1</div>
+				<div id="date_2" class="date">2</div>
+				<div id="date_3" class="date">3</div>
+				<div id="date_4" class="date">4</div>
+				<div id="date_5" class="date">5</div>
+				<div id="date_6" class="date">6</div>
+				<div id="date_7" class="date">7</div>
+				<div id="date_8" class="date">8</div>
+				<div id="date_9" class="date">9</div>
+				<div id="date_10" class="date">10</div>
+				<div id="date_11" class="date">11</div>
+				<div id="date_12" class="date">12</div>
+				<div id="date_13" class="date">13</div>
+				<div id="date_14" class="date">14</div>
+				<div id="date_15" class="date">15</div>
+				<div id="date_16" class="date">16</div>
+				<div id="date_17" class="date">17</div>
+				<div id="date_18" class="date">18</div>
+				<div id="date_19" class="date">19</div>
+				<div id="date_20" class="date">20</div>
+				<div id="date_21" class="date">21</div>
+				<div id="date_22" class="date">22</div>
+				<div id="date_23" class="date">23</div>
+				<div id="date_24" class="date">24</div>
+				<div id="date_25" class="date">25</div>
+				<div id="date_26" class="date">26</div>
+				<div id="date_27" class="date">27</div>
+				<div id="date_28" class="date">28</div>
+				<div id="date_29" class="date">29</div>
+				<div id="date_30" class="date">30</div>
+			</div>
+			<div id="slide_board_cover_forw" class="slide_board_cover">
+				<div id="calender_forw" class="calender_control"></div>
+			</div>
+			
+			
+		</div>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+ 		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   
 </body>
-</html>
+  	 
