@@ -1,24 +1,28 @@
-<nav id="navbar_id" class ="navbar navbar-default" role="navigation">
-	<div class ="navbar-header">
-		<ul class ="nav navbar-nav">
-		<li>國立交通大學電資學士班資訊網</li>
-			<!--<li><%= t("EECS_title")%></li>-->
-			<li> <%= link_to t("Home") , root_url%></li>
-				<% if user_signed_in?%>
-					<li><%= link_to t("Hero") , users_hero_path%></li>
-					<li><%= link_to "#{current_user.nick_name} ( #{current_user.rank} / #{current_user.maxrank} )" , users_path%></li>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag "navbar.css" %>
+<div id="navbar_custom_id" class ="navbar">
+		<!--<li><%= t("EECS_title")%></li>-->
+		<%= link_to "Home" , root_url, :class => "navbar_text"%>
+		<%= link_to t("Hero") , users_hero_path, :class => "navbar_text" %>
+		<%= link_to t("Course"), courses_path, :class => "navbar_text" %>
+		<%= link_to t("Experience"), root_url, :class => "navbar_text" %>				
+		<%= link_to t("Rank Policy") ,adminparams_path , :class => "navbar_text"%>
+			
+		<% if current_user %>
+			<%= link_to t("Sign out"), destroy_user_session_path , :method => :delete, :class => "navbar_text_right" %>
+			<% if current_user.is_admin > 0 %>
+				<div class="navbar_text_right">
+					<%= t("admin_mode") %>
+				</div>
+			<% end %>
+			<%= link_to "#{current_user.nick_name}(#{current_user.rank}/#{current_user.maxrank})" , users_path, :class => "navbar_text_right"%>
+			<% if current_user.avatar.present? %>
+          			<%= image_tag current_user.avatar_url(:thumb), size:'50',class: "navbar_img_right" %>
+        		<% else %>
+         			<%= image_tag('default_avatar.jpg', size:'50', class: "navbar_img_right") %>
+       			<% end %>
+		<% end %>
 					
-					<li> <%= link_to t("Rank Policy") ,adminparams_path%></li>
-					<%if current_user.is_admin > 0%>
-						<li> <a hred="#"><%= t("admin_mode") %></a>  </li>
-					
-					<% end %>
-					<li><%= link_to t("Sign out"), destroy_user_session_path , :method => :delete %> </li>
-				<% else %>		 
-					<li><%= link_to t("Sign in") , new_user_session_path%></li>
-				<% end%>
-		</ul>
-	</div>
-</nav>
+</div>
 
 

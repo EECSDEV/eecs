@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course, :only => [ :show, :edit, :update, :destroy]
-  before_action :set_user 
+  before_action :set_user
 	
   def index
     @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
