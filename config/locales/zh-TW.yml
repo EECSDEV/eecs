@@ -90,7 +90,7 @@
 
   #USER
   #hero
-  Rank:  目前積分
+  Rank:  積分
   Max_rank: 最大積分
   Class Year: 系級
   Name: 名字
@@ -99,8 +99,17 @@
   By Rank(High to Low): 積分(高→低) 
   By Grade(Old to Young): 系級(老→小)
   By Grade(Young to Old): 系級(小→老)
-  Search Name or Nickname or Class year: 搜尋「姓」或 「名」或「暱名」或「系級」(姓、名必須分開搜尋)(例 「陳」、「小明」、「104」)
+  Search Name or Nickname or Class year: 搜尋「姓」或 「名」或「暱名」或「系級」
+  Example: (例 「陳」、「小明」、「104」)
   Search: 搜尋
+  L: 排
+  eaderboard: 行榜
+  Articles: 文章數
+  All: 不限
+  Nick: 暱稱
+  First: 名
+  Last: 姓
+  Classyear: 系級
   
   
   #show

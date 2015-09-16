@@ -1,4 +1,21 @@
+.login_slide{
+  position:absolute;
+  width:  62.5%;
+  height: 500px;
+  top: 120px;
+  left: 0px;
+  overflow:hidden;
+  
+}
 
+.home_slide{
+  position:absolute;
+  width:  100%;
+  height: 550px;
+  top: 90px;
+  left: 0px;
+  overflow:hidden;
+}
 
 
 .checkbox_container {
@@ -160,12 +177,36 @@
   top: 5px;
 }
 
+.calander_container{ 
+  z-index: 100; 
+  position: fixed;
+  bottom: -120px;
+  left: 0px;
+  width: 100%;
+
+  transition: 0.5s;
+  transition-delay: 1s;
+  
+}
+
+.calander_container:hover{ 
+  z-index: 100; 
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+
+  transition: 0.5s;
+  
+}
+
 
 
 /* style for currently unstable photo slide show */
 
 #slideshow {
   position: relative;
+  top: -25%;
   height: 100px;
   z-index: -1;
 }

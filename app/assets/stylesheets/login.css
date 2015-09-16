@@ -1,0 +1,43 @@
+.login {
+  background-color:  #333333;
+  width:  36%;
+  height: 500px;
+  position: absolute;
+  top: 120px;
+  left:63%;
+  overflow:hidden;
+ 
+}
+
+.login_text {
+  display:inline;
+  position: relative;
+  left: 100px;
+  top: 110px;
+  color: #DDDDDD;
+  font-size: 20px;
+  font-family:SimSun;
+  line-height: 30px;
+}
+.login_textbox {
+  display:inline;
+  position: relative;
+  top: 0px;
+  height: 20px;
+  width: 150px;  
+  color: #000000;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.login_submit{
+  display:inline;
+  color: #DDDDDD;
+  font-size: 20px;
+  font-family:SimSun;
+  line-height: 30px;
+  background-color:  #333333;
+  border-width:0;
+}
+
+

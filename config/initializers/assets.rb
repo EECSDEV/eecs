@@ -14,3 +14,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( custom.css )
 Rails.application.config.assets.precompile += %w( navbar.css )
 Rails.application.config.assets.precompile += %w( slideshow.js )
+Rails.application.config.assets.precompile += %w( hero.css )

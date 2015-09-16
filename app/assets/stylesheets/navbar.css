@@ -1,8 +1,28 @@
-.navbar {
+.navbar_login {
+  z-index: 100; 
   background-color:  #333333;
   border-bottom-color: #DDDDDD;
   border-bottom-width: 0px;
   border-bottom-style: solid;
+  font-family:SimSun;
+  
+  width: 100%;
+  height: 60px;
+  line-height: 55px;
+  
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+
+.navbar {
+  z-index: 100; 
+  background-color:  #333333;
+  border-bottom-color: #DDDDDD;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  font-family:SimSun;
   
   width: 100%;
   height: 60px;
@@ -17,6 +37,7 @@
 }
 
 .navbar:hover {
+  z-index: 100; 
   background-color:  #333333;
   border-bottom-color: #DDDDDD;
   border-bottom-width: 5px;

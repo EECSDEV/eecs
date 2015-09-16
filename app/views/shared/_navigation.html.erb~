@@ -4,7 +4,6 @@
 <div class ="navbar_login">
 <%else%>
 <div id="navbar_custom_id" class ="navbar">
-<%end%>
 		<!--<li><%= t("EECS_title")%></li>-->
 		<%= link_to "Home" , root_url, :class => "navbar_text"%>
 		<%= link_to t("Hero") , users_hero_path, :class => "navbar_text" %>

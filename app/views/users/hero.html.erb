@@ -1,49 +1,133 @@
-<p>
-<%= t("Search Name or Nickname or Class year") %>
-</p>
-<p>
-<%= form_tag users_hero_path, :method => :get do %>
-  <%= text_field_tag "keyword" %>
-  <%= submit_tag t("Search") %>
+<%= stylesheet_link_tag "hero.css" %>
 
-<% end %>
+<div class="title">
+	<div class="title_first"><%= t("L") %></div><div class="title_rest"><%= t("eaderboard") %></div>
+</div>
 
-</p>
+<div class="search_bar">
+	<%= form_tag users_hero_path, :method => :get do %>
+  		<%= text_field_tag("keyword",@key, :class => "search_textbox") %>
+		<%= select_tag :search_type,	
+	  	 options_for_select({t('All')=> "all",t('Nick')=> "nick",t('First')=> "first",t('Last')=> "last",t('Classyear') => "classyear"}, @stype)
+		
+		%>
+  		<%= submit_tag t("Search"), :class => "search_submit" %>
+
+	<% end %>
+	<%= t("Search Name or Nickname or Class year") %><br>
+	<%= t("Example")%><br>
+
+</div>
 
 
-<table class="table table-hover">
-  <tr>
-    <th><%= t('Rank') + '/' + t('Max_rank') %></th>
-    <th><%= t('Class Year') %></th>
-    <th><%= t('Name') %></th>
-    <th><%= t('Nick name') %></th>
-    <th><%= t('Link') %></th>
+<table class="hero">
+  <tr class="hero">
+    <th width="5%" class="hero"><%= "" %></th>
+    <th width="5%" class="hero"><%= "" %></th>
+    <th width="20%" class="hero"><%= "" %></th>
+    <th width="25%" class="hero"><%= t('Rank') + '(' + t('Max_rank') + ')' %></th>
+    <th width="10%" class="hero"><%= t('Class Year') %></th>
+    <th width="10%" class="hero"><%= t('Articles') %></th>
     <% if current_user.is_admin == 2  %> 
-        <th><%= t('confirm') %></th>
-        <th><%= t('Edit') %></th>
+        <th width="15%" class="hero"><%= t('confirm') %></th>
+    <% else %>
+    	<th width="25%" class="hero"> </th>
     <% end %>
     
   </tr>
+<%if current_user.is_admin == 2 %>
+	<% @notyet_confirm_users.each do |user| %>
+	    <tr class="hero">
+	    <th width="5%" class="hero"><%= "" %></th>
+	    <td width="5%" class="hero"><%= "" %></td>
+	    <th class="hero">
+		<%= link_to "#{user.last_name} #{user.first_name}",{:controller => 'users', :action => 'show', :id => user.id},:class=> "link" %>
+	    </th>
+	    <td width="25%" class="hero"><%= user.rank %>(<%= user.maxrank %>)</td>
+	    <td width="10%" class="hero"><%= user.class_year %></td> 
+	    <td width="10%" class="hero"><%= user.feedbacks.count%>
+	    <% if current_user.is_admin == 2 %>
+		 <% if user.is_admin == -1 %>         
+		 	<td width="15%" class="hero"><%= link_to  t('confirm'),{ :controller => 'users', :action => 'confirm', :id => user.id}, :class => "btn btn-warning" %></td>
+			<td width="10%" class="hero"></td>
+		 <% else %>
+		 	<td width="25%" class="hero"></td>
+		 <% end %>
+	    <% else %>
+	    	<td width=35% class="hero"></td>
+	 
+	    <%end%>
+	 </tr>
+	<% end %>
 
-<% @users.each_with_index do |user,index| %>
-    <tr>
-    <td><%= user.rank %> / <%= user.maxrank %></td>
-    <td><%= user.class_year %></td> 
-    <td><%= user.last_name %> <%= user.first_name %></td>
-    <td><%= user.nick_name %></td>
-    <td><%=link_to t('Link'), :controller => 'users', :action => 'show', :id => user.id %></td>
-    <% if current_user.is_admin == 2 %>
-         <% if user.is_admin == -1 %>         
-             <td><%= link_to  t('confirm'),{ :controller => 'users', :action => 'confirm', :id => user.id}, :class => "btn btn-warning" %></td>
-         <% else %>
-         <td></td>
-         <% end %>
-         
-	 <td><%= link_to t("Edit") , edit_user_registration_path %></td>
-   <%end%>
- </tr>
 <% end %>
-</table>
 
-<%= paginate @users %>
+<% if @search == 0 %>
+	<% @users.each_with_index do |user,index| %>
+	    <tr class="hero">
+	    <th width="5%" class="hero"><%= ""%></th>
+	    <td width="5%" class="hero"><%= index+1 %></td>
+	    <th>
+		<% if user.avatar.present? %>
+			<%= image_tag(user.avatar_url(:thumb), size:'50', class:"hero_img") %>
+		<% else %>
+		 	<%= image_tag('default_avatar.jpg', size:'50', class:"hero_img") %>
+	       	<% end %>
+		<%= link_to "#{user.nick_name}",{:controller => 'users', :action => 'show', :id => user.id},:class=> "link" %>
+	    </th>
+	    <td width="25%" class="hero"><%= user.rank %>(<%= user.maxrank %>)</td>
+	    <td width="10%" class="hero"><%= user.class_year %></td> 
+	    <td width="10%" class="hero"><%= user.feedbacks.count%>
+	    <% if current_user.is_admin == 2 %>
+		 <% if user.is_admin == -1 %>         
+		 	<td width="15%" class="hero"><%= link_to  t('confirm'),{ :controller => 'users', :action => 'confirm', :id => user.id}, :class => "btn btn-warning" %></td>
+			<td width="10%" class="hero"></td>
+		 <% else %>
+		 	<td width="25%" class="hero"></td>
+		 <% end %>
+	    <% else %>
+	    	<td width=35% class="hero"></td>
+	 
+	    <%end%>
+	 </tr>
+	<% end %>
+<% else %>
+	<% @users.each do |user| %>
+	    <tr class="hero">
+	    <th width="5%" class="hero"><%= "" %></th>
+	    <td width="5%" class="hero"><%= "" %></td>
+	    <th class="hero">
+		<% if user.avatar.present? %>
+			<%= image_tag(user.avatar_url(:thumb), size:'50', class:"hero_img") %>
+		<% else %>
+		 	<%= image_tag('default_avatar.jpg', size:'50', class:"hero_img") %>
+	       	<% end %>
+		<%= link_to "#{user.nick_name}",{:controller => 'users', :action => 'show', :id => user.id},:class=> "link" %>
+	    </th>
+	    <td width="25%" class="hero"><%= user.rank %>(<%= user.maxrank %>)</td>
+	    <td width="10%" class="hero"><%= user.class_year %></td> 
+	    <td width="10%" class="hero"><%= user.feedbacks.count%>
+	    <% if current_user.is_admin == 2 %>
+		 <% if user.is_admin == -1 %>         
+		 	<td width="15%" class="hero"><%= link_to  t('confirm'),{ :controller => 'users', :action => 'confirm', :id => user.id}, :class => "btn btn-warning" %></td>
+			<td width="10%" class="hero"></td>
+		 <% else %>
+		 	<td width="25%" class="hero"></td>
+		 <% end %>
+	    <% else %>
+	    	<td width=35% class="hero"></td>
+	 
+	    <%end%>
+	 </tr>  
+	<% end %>
+<% end %>
+
+</table>
+<%if @search == 1 %>
+<div class= "page_select">
+	<%= paginate @users %>
+</div>
+<% end %>
+
+
 
