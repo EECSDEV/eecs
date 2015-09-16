@@ -206,7 +206,7 @@
 
 #slideshow {
   position: relative;
-  top: -25%;
+  top: 0%;
   height: 100px;
   z-index: -1;
 }
