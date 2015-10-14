@@ -4,17 +4,29 @@ class CoursesController < ApplicationController
   before_action :set_user
 	
   def index
-    @button_style = ["","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link","btn btn-link"]
+    @key = ""
+    @stype = ""
+    @is_searching = 0
+    @tag_style = ["","course_tag_other","course_tag_other","course_tag_other","course_tag_other","course_tag_other","course_tag_other"]
+    @tag_z_index = [ 0,"6","5","4","3","2","1"]
     @year_list= ["","Freshman","Sophomore","Junior and Senior","Graduate","Foreign Language","General Knowledge"]
     if params[:keyword] and not params[:keyword] == ''
-        @courses = Course.where( [ "name like ? OR instructor like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ] ).order('grade').page(params[:page]).per(1000)
-	@result = "#{@courses.count} results matching keyword ' #{params[:keyword]} '"
+      if params[:search_type] == 'name'
+        @courses = Course.where( [ "name like ?", "%#{params[:keyword]}%" ] ).order('grade').page(params[:page]).per(1000)
+      elsif params[:search_type] == 'instructor'
+        @courses = Course.where( [ "instructor like ?", "%#{params[:keyword]}%" ] ).order('grade').page(params[:page]).per(1000)
+      end
+        @key = params[:keyword]
+        @stype = params[:search_type]
+        @is_searching = 1
     elsif params[:grade]
         @courses = Course.where(:grade => params[:grade]).order('name').page(params[:page]).per(10)
-        @button_style[params[:grade].to_i] = "btn btn-info"
+        @tag_style[params[:grade].to_i] = "course_tag_select"
+	@tag_z_index[params[:grade].to_i] = "10"
     else
         @courses = Course.where(:grade => 1).order('name').page(params[:page]).per(10)
-        @button_style[1] = "btn btn-info"
+        @tag_style[1] = "course_tag_select"
+	@tag_z_index[1] = "10"
     end
   end
 

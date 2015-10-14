@@ -1,6 +1,6 @@
 #encoding: Big5
 Adminparam.create(:point_get_feedback => 25, :point_get_pastexam => 60, :point_need_feedback => 0, :point_need_pastexam => 10) unless Adminparam.first
-User.create(:username => 'admin', :email => 'admin@gmail.com', :password => '12345678', :password_confirmation => '12345678' , :is_admin => 2, :nick_name => 'admin', :first_name => 'admin', :last_name => 'admin', :rank => 9999999, :maxrank => 9999999) unless User.where(:username => 'admin')
+User.create(:username => 'admin', :email => 'admin@gmail.com', :password => '12345678', :password_confirmation => '12345678' , :is_admin => 2, :nick_name => 'admin', :first_name => 'admin', :last_name => 'admin', :rank => 9999999, :maxrank => 9999999) unless User.where(:username => 'admin').first
 Course.create( :name => '物件導向程式設計', :instructor => '王昱舜', :grade => 1, :description => '大一必修' ) unless Course.where(:name => '物件導向程式設計', :instructor => '王昱舜').first
 Course.create( :name => '物件導向程式設計', :instructor => '柯皓仁', :grade => 1, :description => '大一必修' ) unless Course.where(:name => '物件導向程式設計', :instructor => '柯皓仁').first
 Course.create( :name => '物件導向程式設計', :instructor => '荊宇泰', :grade => 1, :description => '大一必修，英文授課' ) unless Course.where(:name => '物件導向程式設計', :instructor => '荊宇泰').first

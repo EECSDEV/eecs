@@ -73,15 +73,36 @@ td.hero{
 }
 
 
-tr.hero{
-  border-bottom-width: 5px; 
-  border-bottom-color: #CCCCCC;
+tr:nth-child(even).hero{
+  border-bottom-width: 0px; 
+  border-bottom-color: #DDDDDD;
   border-bottom-style: solid;
   
   
   height: 60px;
   color: #333333;
-  background-color:expression((this.sectionRowIndex%2==0)?"#BBBBBB":"#FFFFFF")
+  background-color:#FFFFFF;
+}
+
+tr:nth-child(odd).hero{
+  border-bottom-width: 0px; 
+  border-bottom-color: #DDDDDD;
+  border-bottom-style: solid;
+  
+  
+  height: 60px;
+  color: #333333;
+  background-color:#DDDDDD;
+}
+
+tr.hero_first{
+  border-bottom-width: 5px; 
+  border-bottom-color: #DDDDDD;
+  border-bottom-style: solid;
+  
+  height: 60px;
+  color: #333333;
+  background-color:#FFFFFF;
 }
 
 .hero_img{
@@ -95,4 +116,8 @@ tr.hero{
   position: absolute;
   top: 150px;
 }
+
+
+
+
 

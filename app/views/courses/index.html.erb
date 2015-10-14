@@ -1,62 +1,107 @@
-<p>
-  <%= link_to t('Back to Home'), root_url, :class => "btn btn-info", :method => :get %>
-</p>
 
-<p>
-  <%= link_to t('New Course'), new_course_path, :class => "btn btn-primary"%>
-</p>
+<div class="course_page_select">
+		<%= paginate @courses %>
+</div>
+<div class="search_bar_course">
+	<%= form_tag courses_path, :method => :get do %>
+  		<%= text_field_tag("keyword", @key, :class => "search_textbox_course") %>
+		<%= select_tag :search_type,	
+	  	 options_for_select({t('Course Name')=> "name",t('Instructor')=> "instructor"}, @stype)
+		
+		%>
+  		<%= submit_tag t("Search"), :class => "search_submit_course" %>
 
-<p>
-<%= form_tag courses_path, :method => :get do %>
-  <%= text_field_tag "keyword" %>
-  <%= submit_tag t("Search instructor or course name") %>
-<% if @result %>
-<%= @result %>
-<%end%>
-<% end %>
+	<% end %>
+</div>
 
-</p>
+<div class="course_container">
+	<div class="course_tag_container">
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 5px; z-index:<%= @tag_z_index[1]%>;" ><div class= <%= @tag_style[1] %> >
+		<%= link_to t('Freshman'), {:controller=> 'courses', :action => 'index', :grade => 1}, :class => "course_tag_text" %>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 144px; z-index:<%= @tag_z_index[2]%>;"><div class= <%= @tag_style[2] %> >
+		<%= link_to t('Sophomore'), {:controller=> 'courses', :action => 'index', :grade => 2}, :class => "course_tag_text" %>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 283px; z-index:<%= @tag_z_index[3]%>;"><div class= <%= @tag_style[3] %> >
+		<%= link_to t('Junior and Senior'), {:controller=> 'courses', :action => 'index', :grade => 3}, :class => "course_tag_text" %>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 422px; z-index:<%= @tag_z_index[4]%>;"><div class= <%= @tag_style[4] %> >
+		<%= link_to t('Graduate'), {:controller=> 'courses', :action => 'index', :grade => 4}, :class => "course_tag_text" %>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 561px; z-index:<%= @tag_z_index[5]%>;"><div class= <%= @tag_style[5] %> >
+		<%= link_to t('Foreign Language'), {:controller=> 'courses', :action => 'index', :grade => 5}, :class => "course_tag_text" %>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 700px; z-index:<%= @tag_z_index[6]%>;"><div class= <%= @tag_style[6] %> >
+		<%= link_to t('General Knowledge'), {:controller=> 'courses', :action => 'index', :grade => 6}, :class => "course_tag_text"%>
+	</div></div>
+	<div class= <%= "course_tag_out" %> style="position:absolute; top:0px; left: 839px; z-index:0>;"><div class= <%= "new_course_button" %> >
+		<%= link_to t('New Course'),  new_course_path, :class => "course_tag_text"%>
+	</div></div>
+	</div>
+	<table class="course_index">
+		<tr class="course_index">
+			<th width="2%" class="course_index"></th>  
+        		<% if @is_searching == 1 %>
+				<th width="11%" class="course_index"><%= t("Grade") %></th>
+			<% end %>
+			<th width="30%" class="course_index"><%= t("Course Name") %></th>
+			<th width="15%" class="course_index"><%= t("Instructor") %></th>
 
-<p>
-  <%= link_to t('Freshman'), {:controller=> 'courses', :action => 'index', :grade => 1}, :class => @button_style[1], :style => 'width: 16%' %>
-  <%= link_to t('Sophomore'), {:controller=> 'courses', :action => 'index', :grade => 2}, :class => @button_style[2], :style => 'width: 16.66%' %>
-  <%= link_to t('Junior and Senior'), {:controller=> 'courses', :action => 'index', :grade => 3}, :class => @button_style[3], :style => 'width: 16%' %>
-  <%= link_to t('Graduate'), {:controller=> 'courses', :action => 'index', :grade => 4}, :class => @button_style[4], :style => 'width: 16%' %>
-  <%= link_to t('Foreign Language'), {:controller=> 'courses', :action => 'index', :grade => 5}, :class => @button_style[5], :style => 'width: 16%' %>
-  <%= link_to t('General Knowledge'), {:controller=> 'courses', :action => 'index', :grade => 6}, :class => @button_style[6], :style => 'width: 16%'%>
-</p>
+			<th width="10%" class="course_index"><%= t("Feedbacks") %></th>
+			<th width="10%" class="course_index"><%= t("Pastexams") %></th>
+			<%if current_user.is_admin >0 %>
+	  			<th width="10%" class="course_index"><%= t("Edit") %></th>
+	  			<th width="10%" class="course_index"><%= t("Delete") %></th>
+				<% if @is_searching == 1 %>		
+					<th width="2%" class="course_index"></th>
+				<% else %>
+					<th width="4%" class="course_index"></th>
+				<% end %>
+			<% else %>
+				<% if @is_searching == 1 %>		
+					<th width="22%" class="course_index"></th>
+				<% else %>
+					<th width="24%" class="course_index"></th>
+				<% end %>
+			<%end%>
+			
+		</tr>
+	<% @courses.each do |course| %>
+	  	<tr class="course_index">
+			<td width="2%" class="course_index"></td>  
+			<% if @is_searching == 1 %>
+				<td width="11%" class="course_index"><%= t(@year_list[course.grade]) %></td>
+			<% end %>
+			<td width="30%" class="course_index"><%=link_to "#{course.name}" , course_path(course)%></td> 
+			<td width="15%" class="course_index"><%=course.instructor%></td>
+			    
+			<td width="10%" class="course_index"><%= course.feedbacks.count %> </td>
+			<td width="10%" class="course_index"><%= course.pastexams.count %> </td>
+			<% if current_user.is_admin  > 0  %>
+				<th width="10%" class="course_index"><%= link_to t('Edit'), edit_course_path(course)%></th>
+				<th width="10%" class="course_index"><%= link_to t('Delete'),course_path(course), :method => :delete, data: { confirm: t('Are you sure') } %></th>
+				<% if @is_searching == 1 %>		
+					<th width="2%" class="course_index"></th>
+				<% else %>
+					<th width="4%" class="course_index"></th>
+				<% end %>
+			<% else %>
+				<% if @is_searching == 1 %>		
+					<th width="22%" class="course_index"></th>
+				<% else %>
+					<th width="24%" class="course_index"></th>
+				<% end %>
+	    		<% end %>
+	  	</tr>
+	<% end %>
+        <tr class = "course_index_bottom_space">
+		
+        </tr>
+	</table>
+	   
+</div>
+  
 
-<ul>
-<table class="table table-hover">
-  <tr>  
-    <th><%= t("Grade") %></th>
-    <th><%= t("Course Name") %></th>
-    <th><%= t("Instructor") %></th>
-
-    <th><%= t("Feedbacks") %></th>
-    <th><%= t("Pastexams") %></th>
-    <%if current_user.is_admin >0%>
-      <th><%= t("Edit") %></th>
-      <th><%= t("Delete") %></th>
-    <%end%>
-  </tr>
-<% @courses.each do |course| %>
-  <tr>
-    <td><%= t(@year_list[course.grade]) %></td>
-    <td><%=link_to "#{course.name}" , course_path(course)%></td> 
-    <td><%=course.instructor%></td>
-    
-    <td><%= course.feedbacks.count %> </td>
-    <td><%= course.pastexams.count %> </td>
-    <% if @user.is_admin  > 0  %>
-      <th><%= link_to t('Edit'), edit_course_path(course)%></th>
-      <th><%= link_to t('Delete'),course_path(course), :method => :delete, data: { confirm: t('Are you sure') } %></th>
-    <%end %>
-  </tr>
-<% end %>
-</table>
-<%= paginate @courses %>
-</ul>
 
 
 
