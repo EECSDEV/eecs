@@ -1,0 +1,96 @@
+.show_user_container{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color:#CCCCCC;
+  height: 100%;
+  width: 100%;
+  padding-top: 75px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 24px;
+  font-family: SimSun;
+  color: #333333;
+  font-weight: bold;
+}
+
+.avatar_container{
+  position:absolute;
+  right: 150px;
+  top: 80px;
+  height: 200px;
+  width: 200px;
+  border-width: 5px;
+  border-color: #CCCCCC;
+  border-style: solid;
+  
+  border-radius: 50%;
+  padding: 3px;
+  background-color: #FFFFFF;
+}
+
+
+
+.user_line{
+  height: 5px;
+  width: 100%;
+  background-color:#FFFFFF;
+}
+
+.user_line_in{
+  position:absolute;
+  right: 200px;
+  top: 0px;
+  height: 5px;
+  width: 150px;
+  background-color:#CCCCCC;
+}
+
+td.user_show{
+  font-weight: bold;
+  font-size: 24px;
+  width: 250px;  
+  line-height: 50px;
+}
+
+th.user_show{
+  font-size: 24px;
+  font-weight: 200;
+  width: 300px;
+  line-height: 50px;
+}
+
+.edit_container{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #333333;
+  color: #333333;
+  width: 100px;
+  text-align: center;
+  text-decoration:none;
+  display:block;
+}
+
+.edit_container_in{
+  color: #333333;
+  text-align: center;
+  text-decoration:none;
+  display:block;
+}
+
+
+.edit_container_in:hover{
+  color: #333333;
+  text-align: center;
+  text-decoration:none;
+  display:block;
+}
+
+.button_space{
+
+height: 50px;
+}
+
+
+
+
