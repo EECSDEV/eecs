@@ -9,7 +9,10 @@
 		<%= link_to "Home" , root_url, :class => "navbar_text"%>
 		<%= link_to t("Hero") , users_hero_path, :class => "navbar_text" %>
 		<%= link_to t("Course"), courses_path, :class => "navbar_text" %>
-		<%= link_to t("Experience"), root_url, :class => "navbar_text" %>				
+		<div class = "navbar_text">			
+			<%= t("Experience") %>
+		</div>
+				
 		<%= link_to t("Rank Policy") ,adminparams_path , :class => "navbar_text"%>
 			
 		<% if current_user %>

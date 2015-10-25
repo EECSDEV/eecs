@@ -47,6 +47,14 @@
 
 .link{
   color: #333333;
+  text-decoration:none;
+  display:block;
+}
+
+.link:hover{
+  color: #333333;
+  text-decoration:none;
+  display:block; 
 }
 
 table.hero{
@@ -63,6 +71,11 @@ table.hero{
 }
 
 th.hero{
+  color: #333333;
+  font-weight: 800;
+}
+
+th.hero_link{
   color: #333333;
   font-weight: 800;
 }

@@ -1,6 +1,6 @@
 class Pastexam < ActiveRecord::Base
-  belongs_to :course
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
+  belongs_to :course, :counter_cache => true
   mount_uploader :file, AttachmentUploader
   validate :file_size
   validates_length_of :description, :maximum => 15

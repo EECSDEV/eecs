@@ -45,6 +45,8 @@
 
   margin-right:15px;
   margin-left:15px;
+  display: inline;
+  text-decoration:none;
 
 }
 
@@ -53,7 +55,7 @@
   color: #DDDDDD;
   font-size: 25px;
   font-family:SimSun;
-
+  text-decoration:none;
   margin-right:15px;
   margin-left:15px;
 
@@ -77,12 +79,15 @@
   border-color: #EEEEEE;
   border-style: solid;
 
+
 }
 
 #navbar_custom_id ul li{
   display:inline;
   margin-right:10px;
 }
+
+
 
 
   

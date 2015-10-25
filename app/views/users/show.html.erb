@@ -1,35 +1,38 @@
+<div class = "show_user_container">
 <%if @user %>
 	<h1><%= @user.last_name %> <%= @user.first_name%></h1>
         <% if @user.avatar.present? %>
-          <%= image_tag @user.avatar_url(:thumb) %>
+          <%= image_tag @user.avatar_url(:thumb), :class => "avatar_container" %>
         <% else %>
-          <%= image_tag('default_avatar.jpg') %>
+          <%= image_tag 'default_avatar.jpg' , :class => "avatar_container" %>
         <% end %>
-	<table class="table" style="word-break:break-all">
-    	<tr><th align=center width="33%"><%= t('Class Year') %></th> <td align=center><%= @user.class_year %></td></tr>
-    	<tr><th align=center width="33%"><%= t('Nick name') %></th> <td align=center><%= @user.nick_name %></td></tr>
-    	<tr><th align=center width="33%">Email</th> <td align=center><%= @user.email %></td></tr>
-    	<tr><th align=center width="33%"><%= t('Rank') %></th> <td align=center><%= @user.rank %> / <%= @user.maxrank %></td></tr>
-        <tr><th align=center width="33%"><%= t('Description') %></th> <td align=center><%= @user.description %></td></tr>
-	<tr><th align=center width="33%"><%= t('Number of uploaded feedbacks') %></th> <td align=center><%= @user.feedbacks.count %></td></tr>
-	<tr><th align=center width="33%"><%= t('Number of uploaded pastexams') %> </th> <td align=center><%= @user.pastexams.count %></td></tr>
+	<div class = "user_line"><div class= "user_line_in"> </div></div>
+	<table style="word-break:break-all">
+    	<tr><td class = "user_show"><%= t('Class Year') %></td> <th class = "user_show"><%= @user.class_year %></th></tr>
+    	<tr><td class = "user_show"><%= t('Nick name') %></td> <th class = "user_show"><%= @user.nick_name %></th></tr>
+    	<tr><td class = "user_show">Email</td> <th class = "user_show"><%= @user.email %></th></tr>
+    	<tr><td class = "user_show"><%= t('Rank') %></td> <th class = "user_show"><%= @user.rank %> / <%= @user.maxrank %></th></tr>
+        <tr><td class = "user_show"><%= t('Description') %></td> <th class = "user_show"><%= @user.description %></th></tr>
+	<tr><td class = "user_show"><%= t('Number of uploaded feedbacks') %></td> <th class = "user_show"><%= @user.feedbacks.count %></th></tr>
+	<tr><td class = "user_show"><%= t('Number of uploaded pastexams') %> </td> <th class = "user_show"><%= @user.pastexams.count %></th></tr>
 	</table>
         
 <% else %>
 	<h1><%= current_user.last_name %> <%= current_user.first_name%></h1>
 	<% if current_user.avatar.present? %>
-          <%= image_tag current_user.avatar_url(:thumb) %>
+          <%= image_tag current_user.avatar_url(:thumb), :class => "avatar_container" %>
         <% else %>
-          <%= image_tag('default_avatar.jpg') %>
+          <%= image_tag 'default_avatar.jpg' , :class => "avatar_container" %>
         <% end %>
-        <table class="table" style="word-break:break-all">
-    	<tr><th align=center width="33%"><%= t('Class Year') %></th> <td><%= current_user.class_year %></td></tr>
-    	<tr><th align=center width="33%"><%= t('Nick name') %></th> <td><%= current_user.nick_name %></td></tr>
-    	<tr><th align=center width="33%">Email</th> <td><%= current_user.email %></td></tr>
-    	<tr><th align=center width="33%"><%= t('Rank') %></th> <td><%= current_user.rank %> / <%= current_user.maxrank %></td></tr>
-        <tr><th align=center width="33%"><%= t('Description') %></th> <td><%= current_user.description %></td></tr>
-	<tr><th align=center width="33%"><%= t('Number of uploaded feedbacks') %> </th> <td><%= current_user.feedbacks.count %></td></tr>
-	<tr><th align=center width="33%"><%= t('Number of uploaded pastexams') %> </th> <td><%= current_user.pastexams.count %></td></tr>
+	<div class = "user_line"><div class= "user_line_in"> </div></div>
+        <table  style="word-break:break-all">
+    	<tr><td class = "user_show"><%= t('Class Year') %></td> <th class = "user_show"><%= current_user.class_year %></th></tr>
+    	<tr><td class = "user_show"><%= t('Nick name') %></td> <th class = "user_show"><%= current_user.nick_name %></th></tr>
+    	<tr><td class = "user_show">Email</td> <th class = "user_show"><%= current_user.email %></th></tr>
+    	<tr><td class = "user_show"><%= t('Rank') %></td> <th class = "user_show"><%= current_user.rank %> / <%= current_user.maxrank %></th></tr>
+        <tr><td class = "user_show"><%= t('Description') %></td> <th class = "user_show"><%= current_user.description %></th></tr>
+	<tr><td class = "user_show"><%= t('Number of uploaded feedbacks') %> </td> <th class = "user_show"><%= current_user.feedbacks_count %></th></tr>
+	<tr><td class = "user_show"><%= t('Number of uploaded pastexams') %> </td> <th class = "user_show"><%= current_user.pastexams_count %></th></tr>
 	</table>
         
 <%end%>
@@ -55,7 +58,10 @@
 
 
 <% if @user == current_user || !@user || current_user.is_admin == 2%> 
-	<p>
-	  <%= link_to t("Edit"), edit_user_registration_path, :class => "btn btn-info", :method => :get%>
+	<div class = "edit_container">
+	  <%= link_to t("Edit"), edit_user_registration_path, :class => "edit_container_in"%>
+	</div>
 <% end %>
-<%= link_to t('Back to Home'), root_url, :class => "btn btn-info", :method => :get %></p>
+<div class = "button_space">
+
+</div>

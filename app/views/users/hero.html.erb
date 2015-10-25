@@ -22,14 +22,15 @@
   <tr class="hero_first">
     <th width="5%" class="hero"><%= "" %></th>
     <th width="5%" class="hero"><%= "" %></th>
+    <th width="5%" class="hero"><%= "" %></th>
     <th width="20%" class="hero"><%= "" %></th>
     <th width="25%" class="hero"><%= t('Rank') + '(' + t('Max_rank') + ')' %></th>
     <th width="10%" class="hero"><%= t('Class Year') %></th>
     <th width="10%" class="hero"><%= t('Articles') %></th>
     <% if current_user.is_admin == 2  %> 
-        <th width="15%" class="hero"><%= t('confirm') %></th>
+        <th width="10%" class="hero"><%= t('confirm') %></th>
     <% else %>
-    	<th width="25%" class="hero"> </th>
+    	<th width="20%" class="hero"> </th>
     <% end %>
     
   </tr>
@@ -38,17 +39,18 @@
 	    <tr class="hero">
 	    <th width="5%" class="hero"><%= "" %></th>
 	    <td width="5%" class="hero"><%= "" %></td>
-	    <th class="hero">
+            <td width="5%" class="hero"><%= "" %></td>
+	    <th class="hero" width = "15%"1">
 		<%= link_to "#{user.last_name} #{user.first_name}",{:controller => 'users', :action => 'show', :id => user.id},:class=> "link" %>
 	    </th>
 	    <td width="25%" class="hero"><%= user.rank %>(<%= user.maxrank %>)</td>
 	    <td width="10%" class="hero"><%= user.class_year %></td> 
-	    <td width="10%" class="hero"><%= user.feedbacks.count%>
+	    <td width="10%" class="hero"><%= user.feedbacks_count%>
 	    <% if current_user.is_admin == 2 %>
 		 <% if user.is_admin == -1 %>         
 		 	<td width="15%" class="hero"><%= link_to  t('confirm'),{ :controller => 'users', :action => 'confirm', :id => user.id}, :class => "btn btn-warning" %></td>
 			<td width="10%" class="hero"></td>
-		 <% else %>
+		 <% else %>0
 		 	<td width="25%" class="hero"></td>
 		 <% end %>
 	    <% else %>
@@ -65,12 +67,14 @@
 	    <tr class="hero">
 	    <th width="5%" class="hero"><%= ""%></th>
 	    <td width="5%" class="hero"><%= index+1 %></td>
-	    <th>
+	    <th width = "5%">
 		<% if user.avatar.present? %>
 			<%= image_tag(user.avatar_url(:thumb), size:'50', class:"hero_img") %>
 		<% else %>
 		 	<%= image_tag('default_avatar.jpg', size:'50', class:"hero_img") %>
 	       	<% end %>
+	    </th>
+            <th width = "15%" class = "hero">
 		<%= link_to "#{user.nick_name}",{:controller => 'users', :action => 'show', :id => user.id},:class=> "link" %>
 	    </th>
 	    <td width="25%" class="hero"><%= user.rank %>(<%= user.maxrank %>)</td>
