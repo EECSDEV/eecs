@@ -1,10 +1,10 @@
-<p>
-<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
-<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
-<%= link_to t('Back to Course'), course_path(@course), :class => "btn btn-info", :method => :get%>
-</p>
-
-<h1><%= @course.name %> <%= @course.instructor %></h1>
+<div class = "show_course_container">
+	<div class = "course_title"> <%= @course.name %> </div>
+	<div class = "course_instructor"> <%= @course.instructor %>
+</div>
+	<div class = "course_line"> </div>
+<div class = "course_feedback_back"> </div>
+<%= link_to t('Back_to_Course'), course_path(@course), :class => "course_feedback_back_text", :method => :get%>
 
 <table class="table table-hover">
   <tr>
@@ -51,4 +51,6 @@
 <p>
 <%= link_to t('New Feedback'), new_course_feedback_path(@course), :class => "btn btn-primary", :method => :get %>
 </p>
+
+</div>
 
