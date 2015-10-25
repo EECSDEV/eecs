@@ -209,10 +209,124 @@ tr.course_index_bottom_space{
   font-size: 20px;
   color:#555555;
   font-family:SimSun;
+}
+
+/*course show*/
+.show_course_container{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color:#CCCCCC;
+  height: 100%;
+  width: 100%;
+  padding-top: 75px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 24px;
+  font-family: SimSun;
+  color: #333333;
+  font-weight: bold;
   
 }
 
 
 
 
+.course_title{
+  font-size: 36px;
+  font-weight: bold;
+  display:inline;
+  line-height: 60px;
+}
+
+.course_instructor{
+  font-size: 36px;
+  display:inline;
+  font-weight:200;
+  line-height: 60px;
+}
+
+.course_line{
+  height: 5px;
+  width: 100%;
+  background-color:#FFFFFF;
+}
+
+td.course_show{
+  font-weight: bold;
+  font-size: 24px;
+  width: 150px;  
+  line-height: 50px;
+}
+
+th.course_show{
+  font-size: 24px;
+  font-weight: 200;
+  width: 550px;
+  line-height: 50px;
+}
+
+.hot{
+  width: 150px;
+  line-height: 50px;
+}
+
+.border{
+  position: relative;
+  top: -35px;
+  left: 140px;
+  width: 0px;
+  height: 0px;
+  line-height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent #EEEEEE transparent transparent;
+}
+
+.hot_container{
+  position: relative;
+  padding: 5px;
+  top: -65px;
+  left: 165px;
+  width: 300px;
+  height: 100px;
+  background-color: #EEEEEE;
+  box-shadow: 3px 3px 1px 1px #BBBBBB;
+  font-size: 16px;
+  line-height: 30px;  
+}
+
+.course_img{
+  position: relative;
+  border-radius: 50%;
+  border-width: 0px;
+  border-color: #EEEEEE;
+  border-style: solid;
+}
+
+.course_feedback_back{
+  position: relative;
+  top: 10px;
+  left: 0px;
+  width: 0px;
+  height: 0px;
+  line-height: 0px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #00FFFF transparent transparent;
+}
+
+.course_feedback_back_text{
+  position: relative;
+  top: -17px;
+  left: 28px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: #555555;
+}
+
+.course_feedback_back_text:hover{
+  color: #555555;
+} 
 

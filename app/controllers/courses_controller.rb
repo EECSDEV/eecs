@@ -48,13 +48,13 @@ class CoursesController < ApplicationController
   end
   
   def show
-    #@course = Course.find(params[:id])
     grade_selector=['','Freshman','Sophomore','Junior and Senior','Graduate','Foreign Language','General Knowledge']
     @average_rate = 0
     if not @course.feedbacks.count == 0 
         @average_rate = @course.feedbacks.average(:rating)
     end
     @grade = grade_selector[@course.grade]
+    @hot_article = @course.feedbacks.order("visit_time DESC").first
   end
   
   def destroy

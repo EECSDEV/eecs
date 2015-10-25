@@ -1,23 +1,50 @@
 <p>
-<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
 <%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
 </p>
 
-<h1><%= @course.name %></h1>
-<table style="word-break:break-all" class="table table-bordered">
-<tr>
-<td align=center width="33%"> <strong><%= t("Instructor") %></strong></td>  
-<td align=center width="33%"> <strong><%= t("Grade") %></strong></td>       
-<td align=center width="33%"> <strong><%= t("Average Rating") %></strong></td> 
-</tr>
-<tr>
-<td align="center" width="33%"><%= @course.instructor %></td>
-<td align="center" width="33%"><%= t(@grade) %></td>
-<td align="center" width="33%"><%= format("%.2f",@average_rate).to_f   %></td>
-<tr><td align="center" COLSPAN=3> <strong><%= t("Description") %></strong></td></tr> 
-<tr><td align="center" COLSPAN=3> <%= simple_format(@course.description) %></td></tr> 
-</table>
-<p>
-<%= link_to t('Feedbacks'), course_feedbacks_path(@course), :class => "btn btn-primary", :style => 'width: 33%' %>
-<%= link_to t('Pastexams'), course_pastexams_path(@course), :class => "btn btn-primary", :style => 'width: 33%'  %>
-</p>
+<div class = "show_course_container">
+	
+		<div class = "course_title"> <%= @course.name %> </div>
+		<div class = "course_instructor"> <%= @course.instructor %>
+</div>
+		<div class = "course_line"> </div>
+		<table style="word-break:break-all">
+		<tr>
+			<td class = "course_show"> <%= t("Course_Grade") %> </td>
+			<th class = "course_show"> <%= t(@grade) %> </th>
+		</tr>
+		<tr>
+			<td class = "course_show"> <%= t("Average Rating") %></td> 
+			<th class = "course_show"> <%= format("%.2f",@average_rate).to_f  %></th>
+		</tr
+		<tr>
+			<td class = "course_show"> <%= t("Course_Description") %> </td>
+			<th class = "course_show"> <%= simple_format(@course.description) %> </th>
+		</tr>
+	</table>
+	<table style="word-break:break-all">
+		<tr>
+			<td class ="course_show"> <%= t('Course_Feedbacks') %>  
+			<td class ="course_show"> <%= link_to image_tag('feedback.png',height:'45px'), course_feedbacks_path(@course) %></td>		
+			<td class = "course_show"><%= t('Course_Pastexams') %> </td>
+			<td class ="course_show"> <%= link_to image_tag('pastexam.png',height:'40px'), course_pastexams_path(@course) %></td>		
+
+		</tr> 
+		</table>
+		<div class = "hot">
+			<%= t('Hot_Articles')%>
+		
+		<div class = "border"> </div>
+                <div class = "hot_container">
+			<% if @hot_article.user.avatar.present? %>
+          			<%= image_tag @hot_article.user.avatar_url(:thumb), size:'30',class: "course_img" %>
+        		<% else %>
+         			<%= image_tag('default_avatar.jpg', size:'30', class: "course_img") %>
+       			<% end %> 
+			<%= link_to "#{@hot_article.user.nick_name}" , users_path(@hot_article.user), style: "color: #333333;" %>
+			<p><%= truncate(@hot_article.content, length: 30) %>
+			<%= link_to "(#{t('Continue_Reading')})", course_feedback_path(@course, @hot_article), style: "color: #333333;" %></p></div>
+		</div>
+	
+</div>
+

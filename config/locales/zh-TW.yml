@@ -39,6 +39,12 @@
   Average Rating: 平均評價
   Feedbacks: 心得
   Pastexams: 考古題
+  Course_Grade: 課程年級
+  Course_Feedbacks: 修課心得
+  Course_Pastexams: 考古題列表
+  Course_Description: 課程描述
+  Hot_Articles: 熱門文章
+  Continue_Reading: 閱讀更多
   
   #edit
   Update: 更新
@@ -54,6 +60,7 @@
   show feedback: 前往
   Points not enough: 積分不足
   New Feedback:  新增心得
+  Back_to_Course: 回課程簡介
 
   #show
   Back to Feedback Index: 回心得清單
