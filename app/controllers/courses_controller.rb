@@ -54,7 +54,12 @@ class CoursesController < ApplicationController
         @average_rate = @course.feedbacks.average(:rating)
     end
     @grade = grade_selector[@course.grade]
-    @hot_article = @course.feedbacks.order("visit_time DESC").first
+    if not @course.feedbacks.count == 0
+        @hot_article = @course.feedbacks.order("visit_time DESC").first
+    else
+        @hot_article = nil
+    end
+    
   end
   
   def destroy

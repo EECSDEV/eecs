@@ -36,14 +36,19 @@
 		
 		<div class = "border"> </div>
                 <div class = "hot_container">
-			<% if @hot_article.user.avatar.present? %>
-          			<%= image_tag @hot_article.user.avatar_url(:thumb), size:'30',class: "course_img" %>
-        		<% else %>
-         			<%= image_tag('default_avatar.jpg', size:'30', class: "course_img") %>
-       			<% end %> 
-			<%= link_to "#{@hot_article.user.nick_name}" , users_path(@hot_article.user), style: "color: #333333;" %>
-			<p><%= truncate(@hot_article.content, length: 30) %>
-			<%= link_to "(#{t('Continue_Reading')})", course_feedback_path(@course, @hot_article), style: "color: #333333;" %></p></div>
+			<% if not @hot_article == nil %> 
+				<% if @hot_article.user.avatar.present? %>
+          				<%= image_tag @hot_article.user.avatar_url(:thumb), size:'30',class: "course_img" %>
+        			<% else %>
+         				<%= image_tag('default_avatar.jpg', size:'30', class: "course_img") %>
+       				<% end %> 
+				<%= link_to "#{@hot_article.user.nick_name}" , users_path(@hot_article.user), style: "color: #333333;" %>
+				<p><%= truncate(@hot_article.content, length: 30) %>
+				<%= link_to "(#{t('Continue_Reading')})", course_feedback_path(@course, @hot_article), style: "color: #333333;" %></p></div>
+			<% else %>
+				<%= t('No_article_yet') %>
+				<%= link_to t('Write yourself'), new_course_feedback_path(@course), style: "color: #333333;" %>
+			<% end %>
 		</div>
 	
 </div>
