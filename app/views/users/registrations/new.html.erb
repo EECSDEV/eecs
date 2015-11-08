@@ -1,55 +1,106 @@
-<h2><%= t('Sign up HERE') %></h2>
+<div class= "edit_user_container">
+	<div class = "user_title"><%= t('Sign up HERE') %></div>
+	<div class = "user_line"></div>
+	<div style = "height:10px;"></div>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<%= devise_error_messages! %>
+		<table style="word-break:break-all">
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :username, t('Username')%>
+				</td>
+				<th class = "user_edit">
+					<%= f.text_field :username%>
+				</th>
+			</tr>
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :email %>
+				</td>
+				<th class = "user_edit">
+					<%= f.label :class_year, t('Class Year')%>
+					<%= f.select (:class_year),	options_for_select((96..120)) %>
+				</th>
+			</tr>
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :description, t('Description')%>
+				</td>
+				<th class = "user_edit">
+					<%= f.text_area :description%>
+				</th>
+			</tr>
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :first_name, t('First name')%>
+				</td>
+				<th class = "user_edit">
+					<%= f.text_field :first_name%>
+				</th>
+			</tr>
+	
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="field">
-		<%= f.label :username, t('Username')%> <br />
-		<%= f.text_field :username%>
- 	</div>
-	<div class = "field">
-		<%= f.label :class_year, t('Class Year')%>
-		<p><%= f.select (:class_year),	
-	  	options_for_select((96..120))
-			
-			%></p>
-	</div>
-	<div class = "field">
-		<%= f.label :description, t('Description')%><br />
-		<%= f.text_area :description%>
-	</div>
-	<div class = "field">
-		<%= f.label :first_name, t('First name')%><br />
-		<%= f.text_field :first_name%>
-	</div>
-	<div class = "field">
-		<%= f.label :last_name, t('Last name')%><br />
-		<%= f.text_field :last_name%>
-	</div>
-	<div class = "field">
-		<%= f.label :nick_name, t('Nick name')%><br />
-		<%= f.text_field :nick_name%>
-	</div>
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :last_name, t('Last name')%>
+				</td>
+				<th class = "user_edit">
+					<%= f.text_field :last_name%>
+				</th>
+			</tr>
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :nick_name, t('Nick name')%>
+				</td>
+				<th class = "user_edit">
+					<%= f.text_field :nick_name%>
+				</th>
+		  </tr>
+  
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :email %>
+				</td>
+				<th class = "user_edit">
+					<%= f.email_field :email, autofocus: true %>
+				</th>
+			</tr>
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :password, t("Password") %>
+				</td>
+				<th class = "user_edit">
+					<%= f.password_field :password, autocomplete: "off" %> 
+					<% if @validatable %>
+					<em>(<%= @minimum_password_length %> <%= t('characters minimum') %>)</em>
+					<% end %>
+				</th>
+			</tr>
+  
+			<tr> 
+				<td class = "user_edit">
+					<%= f.label :password_confirmation, t('Confirm your password') %>
+				</td>
+				<th class = "user_edit">
+					<%= f.password_field :password_confirmation, autocomplete: "off" %>
+				</th>
+			</tr>
+	
 
+	
+		</table>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-						
-  <div class="field">
-    <%= f.label :password, t("Password") %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> <%= t('characters minimum') %>)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+		<div>
+			<%= f.submit t("Sign up") , :class => "edit_container"%>
+		</div>
+  
+	<% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, t('Confirm your password') %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  <div class="actions">
-    <%= f.submit t("Sign up") %>
-  </div>
-<% end %>
+	<div class = "button_space"> </div>
 
+</div>

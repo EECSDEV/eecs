@@ -65,10 +65,15 @@ th.user_show{
   border-width: 2px;
   border-color: #333333;
   color: #333333;
-  width: 100px;
+  width: 80px;
   text-align: center;
   text-decoration:none;
   display:block;
+  background: #CCCCCC;
+  font-size: 16px;
+  font-weight: 200;
+  font-family: SimSun;
+  color: #333333;
 }
 
 .edit_container_in{
@@ -76,6 +81,10 @@ th.user_show{
   text-align: center;
   text-decoration:none;
   display:block;
+  background: #CCCCCC;
+  font-size: 16px;
+  font-weight: 200;
+  font-family: SimSun;
 }
 
 
@@ -87,8 +96,43 @@ th.user_show{
 }
 
 .button_space{
+  height: 50px;
+}
 
-height: 50px;
+.user_title{
+  font-size: 48px;
+  font-weight: 800;
+}
+
+
+.edit_user_container{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color:#CCCCCC;
+  width: 100%;
+  height: 100%;
+  padding-top: 75px;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 16px;
+  font-family: SimSun;
+  color: #333333;
+}
+
+
+td.user_edit{
+  font-weight: bold;
+  font-size: 16px;
+  width: 250px;  
+  line-height: 30px;
+}
+
+th.user_edit{
+  font-size: 16px;
+  font-weight: 200;
+  width: 400px;
+  line-height: 24px;
 }
 
 
