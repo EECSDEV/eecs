@@ -71,9 +71,7 @@ class UsersController < ApplicationController
 
 	def manage
 		@user = User.find(params[:id])
-		if @user != current_user
-			redirect_to :action => :show, :id => @user.id
-		end
+		
 		@type_list= ["Midterm","Final","Quiz","Homework","Project","others"]
 	end
   

@@ -64,6 +64,10 @@
 	<div class = "edit_container">
 	  <%= link_to t("Manage"), :controller => :users, :action => :manage, :id => current_user.id, :class => "edit_container_in"%>
 	</div>
+<% else %>
+	<div class = "edit_container">
+	  <%= link_to t("Posts"), :controller => :users, :action => :manage, :id => @user.id, :class => "edit_container_in"%>
+	</div>
 <% end %>
 <div class = "button_space">
 
