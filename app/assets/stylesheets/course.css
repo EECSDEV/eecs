@@ -222,7 +222,7 @@ tr.course_index_bottom_space{
   top: 0px;
   left: 0px;
   background-color:#CCCCCC;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding-top: 75px;
   padding-left: 5%;
@@ -327,11 +327,48 @@ th.course_show{
   left: 28px;
 
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 400;
   color: #555555;
+  text-decoration : none;
+  display: block;
 }
 
 .course_feedback_back_text:hover{
   color: #555555;
+  text-decoration : none;
+  
 } 
+
+td.course_feedback{
+
+  font-size: 16px;
+}
+
+.pad{
+  padding-left:20px;
+
+}
+
+
+.course_edit_container{
+  border-style: solid;
+  border-width: 2px;
+  border-color: #333333;
+  color: #333333;
+  width: 120px;
+  text-align: center;
+  text-decoration:none;
+  display:block;
+  background: #CCCCCC;
+  font-size: 16px;
+  font-weight: 200;
+  font-family: SimSun;
+  color: #333333;
+}
+
+.course_edit_container:hover{
+  text-decoration:none;
+}
+
+
 

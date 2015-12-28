@@ -40,7 +40,7 @@ class CourseFeedbacksController < ApplicationController
   def update
     @feedback = @course.feedbacks.find(params[:id])
     if @feedback.update(feedback_params)
-       redirect_to course_feedbacks_url(@course)
+       redirect_to course_feedback_path(@course, @feedback)
     else
        render :action => :edit
     end 

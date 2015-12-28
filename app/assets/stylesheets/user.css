@@ -76,6 +76,10 @@ th.user_show{
   color: #333333;
 }
 
+.edit_container:hover{
+  text-decoration:none;
+}
+
 .edit_container_in{
   color: #333333;
   text-align: center;
