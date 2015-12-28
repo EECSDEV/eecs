@@ -74,7 +74,7 @@
 			<% if @is_searching == 1 %>
 				<td width="11%" class="course_index"><%= t(@year_list[course.grade]) %></td>
 			<% end %>
-			<td width="30%" class="course_index"><%=link_to "#{course.name}" , course_path(course)%></td> 
+			<td width="30%" class="course_index"><%=link_to "#{course.name}" , course_path(course), :class=> "course_index"%></td> 
 			<td width="15%" class="course_index"><%=course.instructor%></td>
 			    
 			<td width="10%" class="course_index">

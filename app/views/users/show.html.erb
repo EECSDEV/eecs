@@ -62,11 +62,11 @@
 	  <%= link_to t("Edit"), edit_user_registration_path, :class => "edit_container_in"%>
 	</div>
 	<div class = "edit_container">
-	  <%= link_to t("Manage"), :controller => :users, :action => :manage, :id => current_user.id, :class => "edit_container_in"%>
+	  <%= link_to t("Manage"), params.merge(:controller => :users, :action => :manage, :id => current_user.id), :class => "edit_container_in"%>
 	</div>
 <% else %>
 	<div class = "edit_container">
-	  <%= link_to t("Posts"), :controller => :users, :action => :manage, :id => @user.id, :class => "edit_container_in"%>
+	  <%= link_to  t("Posts"), params.merge(:controller => :users, :action => :manage, :id => @user.id ), :class => "edit_container_in"%>
 	</div>
 <% end %>
 <div class = "button_space">

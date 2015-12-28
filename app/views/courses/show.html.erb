@@ -17,12 +17,14 @@
 			
 			
 		</tr>
-		<tr>
-			<td class = "course_show"> <%= " " %></td> 
-			<th class = "course_show"> 
-			<%= pie_chart @average_list, height: "220px", width: "240px",library: {backgroundColor: "#CCCCCC"} %></th>
-			
-		</tr>
+		<% if @show_chart == 1 %>
+			<tr>
+				<td class = "course_show"> <%= " " %></td> 
+				<th class = "course_show"> 
+				<%= pie_chart @average_list, height: "220px", width: "240px",library: {backgroundColor: "#CCCCCC"} %></th>
+				
+			</tr>
+		<% end %>
 		<tr>
 			<td class = "course_show"> <%= t("Course_Description") %> </td>
 			<th class = "course_show"> <%= simple_format(@course.description) %> </th>

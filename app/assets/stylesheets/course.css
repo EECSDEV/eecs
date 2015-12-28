@@ -137,13 +137,47 @@ table.course_index{
 }
 
 th.course_index{
+  text-decoration:none;
   color: #333333;
   font-weight: 800;
 }
 
 td.course_index{
+  text-decoration:none;
   color: #333333;
   font-weight: 100;
+}
+
+th.course_index:hover{
+  text-decoration:none;
+  
+}
+
+td.course_index:hover{
+  text-decoration:none;
+  
+}
+
+.course_index{
+  text-decoration:none;
+  color: #333333;
+  font-weight: 800;
+}
+
+.course_index{
+  text-decoration:none;
+  color: #333333;
+  font-weight: 100;
+}
+
+.course_index:hover{
+  text-decoration:none;
+  
+}
+
+.course_index:hover{
+  text-decoration:none;
+  
 }
 
 
@@ -156,6 +190,7 @@ tr:nth-child(even).course_index{
   height: 45px;
   color: #333333;
   background-color:#FFFFFF;
+  text-decoration:none;
 
 }
 
@@ -168,7 +203,7 @@ tr:nth-child(odd).course_index{
   height: 45px;
   color: #333333;
   background-color:#DDDDDD;
-  
+  text-decoration:none;
 }
 
 .course_page_select{

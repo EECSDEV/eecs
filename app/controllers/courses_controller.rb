@@ -53,6 +53,11 @@ class CoursesController < ApplicationController
     if not @course.feedbacks.count == 0 
         @average_rate = @course.feedbacks.average(:rating)
     end
+	
+	@show_chart = 0;
+	if @course.feedbacks.count > 0
+		@show_chart = 1;
+	end
 	@average_list = {
 	'1' + t('Points')=>@course.feedbacks.where(:rating => 1).count, 
 	'2' + t('Points')=>@course.feedbacks.where(:rating => 2).count,
