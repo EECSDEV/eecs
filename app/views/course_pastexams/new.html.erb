@@ -1,41 +1,45 @@
-<%= form_for @pastexam, :url => course_pastexams_path(@course) do |f| %>
-    
-    <div class = "field">
-		<%= f.label :year, t('Year')%>
-		<p><%= f.select (:year),	
-	  	 options_for_select((1991..2031))
-		%></p>
-    </div>
-    <div class = "field">
-		<%= f.label :exam_type, t('Exam Type')%>
-		<p><%= f.select (:exam_type),	
-	  	 options_for_select([[t('Midterm'), 0], [t('Final'), 1], [t('Quiz'),2],[t('Homework'),3],[t('Project'),4],[t('others'),5]]) 
-		%></p>
-    </div>
-    <div class = "field">
-		<%= f.label :which_time, t('Which time')%>
-		<p><%= f.select (:which_time),	
-	  	 options_for_select((1..30))
-		%></p>
-    </div>
-    <div class = "field">
-		<%= f.label :has_answer, t('Has Answer')%>
-		<p><%= f.select (:has_answer),	
-	  	 options_for_select([[t('no'), 0], [t('yes'), 1]]) 
-		%></p>
-    </div>
-    <p><%= f.label :file , t('File')%>
-    <%= f.file_field :file %></p>
-    <% if @pastexam.errors[:file].presence %>
-        <%= @pastexam.errors[:file].join(", ") %>
-    <% end %>
-   
-    <p><%= f.label :description, t("Description(max 15 words)") %></p>
-    <p><%= f.text_area :description %></p>
-    
-    <p><%= f.submit t("Create") %></p>
+<div class = "show_course_container">
+	<div class = "course_feedback_back"> </div>
+	<%= link_to t('Back to Pastexam Index'),{ :controller => 'course_pastexams', :action => 'index'},:class => "course_feedback_back_text", :method => 'get' %>
+	<%= form_for @pastexam, :url => course_pastexams_path(@course) do |f| %>
+		
+		<div class = "field">
+			<%= f.label :year, t('Year')%>
+			<p><%= f.select (:year),	
+			 options_for_select((1991..2031))
+			%></p>
+		</div>
+		<div class = "field">
+			<%= f.label :exam_type, t('Exam Type')%>
+			<p><%= f.select (:exam_type),	
+			 options_for_select([[t('Midterm'), 0], [t('Final'), 1], [t('Quiz'),2],[t('Homework'),3],[t('Project'),4],[t('others'),5]]) 
+			%></p>
+		</div>
+		<div class = "field">
+			<%= f.label :which_time, t('Which time')%>
+			<p><%= f.select (:which_time),	
+			 options_for_select((1..30))
+			%></p>
+		</div>
+		<div class = "field">
+			<%= f.label :has_answer, t('Has Answer')%>
+			<p><%= f.select (:has_answer),	
+			 options_for_select([[t('no'), 0], [t('yes'), 1]]) 
+			%></p>
+		</div>
+		<p><%= f.label :file , t('File')%>
+		<%= f.file_field :file %></p>
+		<% if @pastexam.errors[:file].presence %>
+			<%= @pastexam.errors[:file].join(", ") %>
+		<% end %>
+	   
+		<p><%= f.label :description, t("Description(max 15 words)") %></p>
+		<p><%= f.text_area :description %></p>
+		
+		<p><%= f.submit t("Create"),:class => "course_edit_container" %></p>
 
-<% end %>
+	<% end %>
+	<div class = "button_space">
 
-<p><%= button_to t('Back to Pastexam Index'),{ :controller => 'course_pastexams', :action => 'index'}, :method => 'get' %></p>
-
+	</div>
+</div>

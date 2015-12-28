@@ -60,7 +60,9 @@ class CourseFeedbacksController < ApplicationController
       end
     end
     @feedback.destroy
-    redirect_to course_feedbacks_url(@course)
+	
+	redirect_to(:back)
+    
   end
 
   protected

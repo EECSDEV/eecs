@@ -1,54 +1,49 @@
-<p>
-<%= link_to t('Back to Home'), root_url, :class => "btn btn-info" %>
-<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
-<%= link_to t('Back to Course'), course_path(@course), :class => "btn btn-info", :method => :get%>
+<div class = "show_course_container">
+	<div class = "course_feedback_back"> </div>
+	<%= link_to t('Back to Course'), course_path(@course), :class => "course_feedback_back_text", :method => :get %>
 
-<h1><%= @course.name %> <%= @course.instructor %></h1>
+	<h1><%= @course.name %> <%= @course.instructor %></h1>
 
 
-<table width="1" style="word-break:break-all" class="table table-hover">
-  <tr>
-    <th><%= t('Year') %></th>
-    <th><%= t('Uploader') %></th>
-    <th><%= t('Answer') %></th>
-    <th><%= t('Type') %></th>
-    <th><%= t('Link') %></th>
-    <th><%= t('Publish date') %></th>
-    <th><%= t('Description') %></th>
-    <th><%= t('Delete') %>
-</th>
-  </tr>
-  
-  <% @pastexams.each do |pastexam| %>
-  
-	<tr>
-	  <td><%= pastexam.year %></td>
-	  <td>
-          <%= link_to "#{pastexam.user.nick_name}", :controller => 'users', :action => 'show',:id => pastexam.user %></td>
-          <% if pastexam.has_answer == true %>
-            <td><%= t('yes') %></td>
-          <% else %>
-            <td><%= t('no') %></td>
-          <% end %>
-          <td>
-          <%= t(@type_list[pastexam.exam_type]) %>
-          <%= pastexam.which_time %>
-          </td>
-          <td><%= link_to t("Download file"), "/uploads/#{pastexam.id}" %></td>
-          <td><%= pastexam.created_at.to_date %></td>
-          <td><%= pastexam.description %></td>
-          
-          <%if pastexam.user == current_user || current_user.is_admin>0%>
-            <td><%= link_to t('Delete'), course_pastexam_path(@course, pastexam),:method => :delete , data: { confirm: t('Are you sure') }%></td>
-          <%else%>
-          <td></td>
-          <% end %>
-           
-        </tr>
-   <% end %>
-   </table>
-
-<%= paginate @pastexams %>
-<p>
-<%= link_to t('New Pastexam'), new_course_pastexam_path(@course), :class => "btn btn-primary", :method => :get %>
-</p>
+	<table width="1" style="word-break:break-all" class="table table-hover">
+	  <tr>
+		<th><%= t('Year') %></th>
+		<th><%= t('Uploader') %></th>
+		<th><%= t('Type') %></th>
+		<th><%= t('Download') %></th>
+		<th><%= t('Publish date') %></th>
+		<th><%= t('Description') %></th>
+		<th><%= t('Actions') %>
+	</th>
+	  </tr>
+	  
+	  <% @pastexams.each do |pastexam| %>
+	  
+		<tr>
+		  <td><%= pastexam.year %></td>
+		  <td>
+			  <%= pastexam.user.nick_name %></td>
+		
+			  <td>
+			  <%= t(@type_list[pastexam.exam_type]) %>
+			  <%= pastexam.which_time %>
+			  </td>
+			  <td><%= link_to image_tag('pastexam.png',height:'35px'), "/uploads/#{pastexam.id}" %></td>
+			  <td><%= pastexam.created_at.to_date %></td>
+			  <td><%= pastexam.description %></td>
+			  
+			  <%if pastexam.user == current_user || current_user.is_admin>0%>
+				<td><%= link_to t('Delete'), course_pastexam_path(@course, pastexam),:method => :delete , data: { confirm: t('Are you sure') }%></td>
+			  <%else%>
+			  <td></td>
+			  <% end %>
+			   
+			</tr>
+	   <% end %>
+	   </table>
+	   
+	<%= paginate @pastexams %>
+	
+	<%= link_to t('New Pastexam'), new_course_pastexam_path(@course), :class => "course_edit_container", :method => :get %>
+	
+</div>

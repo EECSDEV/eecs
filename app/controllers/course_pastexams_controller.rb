@@ -65,24 +65,28 @@ class CoursePastexamsController < ApplicationController
     end
     @pastexam.destroy
 
-    redirect_to course_pastexams_url( @course )
+	redirect_to(:back)
+    
   end
 
   def download
     @pastexam = Pastexam.find( params[:id] )
     
     @course = @pastexam.course
-    if current_user.rank < @adminparam.point_need_pastexam
+	if current_user == @pastexam.user
+		path = getfilename(@pastexam,@course)
+		send_file path, :x_sendfile=>true
+    elsif current_user.rank < @adminparam.point_need_pastexam
         flash[:alert] = t("Points not enough")
-	redirect_to course_pastexams_path(@course)
+		redirect_to course_pastexams_path(@course)
     else
-	new_point = @pastexam.download_time+=1
+		new_point = @pastexam.download_time+=1
         #@pastexam.save
-	path = getfilename(@pastexam,@course)
-	send_file path, :x_sendfile=>true
-	current_user.rank -= @adminparam.point_need_pastexam
-	current_user.save
-	#@pastexam.update(:download_time => new_point)
+		path = getfilename(@pastexam,@course)
+		send_file path, :x_sendfile=>true
+		current_user.rank -= @adminparam.point_need_pastexam
+		current_user.save
+		#@pastexam.update(:download_time => new_point)
     end
   end
 

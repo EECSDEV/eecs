@@ -3,7 +3,7 @@
   top: 0px;
   left: 0px;
   background-color:#CCCCCC;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding-top: 75px;
   padding-left: 5%;
@@ -65,7 +65,7 @@ th.user_show{
   border-width: 2px;
   border-color: #333333;
   color: #333333;
-  width: 80px;
+  width: 150px;
   text-align: center;
   text-decoration:none;
   display:block;
@@ -74,6 +74,8 @@ th.user_show{
   font-weight: 200;
   font-family: SimSun;
   color: #333333;
+  margin-top: 5px;
+  text-decoration:none;
 }
 
 .edit_container:hover{

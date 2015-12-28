@@ -80,7 +80,8 @@
   New Pastexam: 新增考古題
   yes: 有
   no: 無
-  Download file: 下載連結
+  Download: 下載
+  Actions: 操作
 
   #new
   Exam Type: 類型
@@ -92,7 +93,7 @@
   others: 其他
   File: 檔案
   Has Answer: 有無答案
-  Which time: 哪一次
+  Which time: 第幾次
   Description(max 15 words): 描述(最多15字)
   Back to Pastexam Index: 回考古題清單
 
@@ -118,6 +119,10 @@
   First: 名
   Last: 姓
   Classyear: 系級
+  Your Pastexams: 你的考古題
+  Your Feedbacks: 你的課程心得
+  Back to User: 回到使用者介面
+  Manage: 考古題&心得管理
   
   
   #show
@@ -163,6 +168,10 @@
   confirm: 開通帳號
   Add: 調整分數
   
-
+  #PAG
+  first_pag: 第一頁
+  previous_pag: 上一頁
+  next_pag: 下一頁
+  last_pag: 最後一頁
 
 

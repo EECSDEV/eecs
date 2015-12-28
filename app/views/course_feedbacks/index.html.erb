@@ -1,9 +1,10 @@
 <div class = "show_course_container">
+	<div class = "course_feedback_back"> </div>
+	<%= link_to t('Back_to_Course'), course_path(@course), :class => "course_feedback_back_text", :method => :get%>
 	<div class = "course_title"> <%= @course.name %> </div>
 	<div class = "course_instructor"> <%= @course.instructor %></div>
 	<div class = "course_line"> </div>
-	<div class = "course_feedback_back"> </div>
-	<%= link_to t('Back_to_Course'), course_path(@course), :class => "course_feedback_back_text", :method => :get%>
+	
 
 	<table class="table table-hover">
 		<tr>
@@ -13,7 +14,7 @@
 			<th><%= t('Link') %></th>
 			<th><%= t('Publish date') %></th>
 			<th><%= t('View time') %></th>
-			<th><%= t('Delete') %></th>
+			<th><%= t('Actions') %></th>
 		</tr>
 		<% @feedbacks.each do |feedback| %>
 			<tr>
@@ -45,9 +46,9 @@
 	</table>
 	<%= paginate @feedbacks %>
 
-	<p>
+	
 	<%= link_to t('New Feedback'), new_course_feedback_path(@course),  :class => "course_edit_container", :method => :get %>
-	</p>
+
 	<div class = "button_space">
 
 	</div>

@@ -15,7 +15,7 @@
 			<%= image_tag("EECS.jpg") %>
 		</div> -->
 		<%= render :partial =>  'shared/navigation'%>
-                <%= render :partial =>  'shared/calander'%>
+        <!--<%= render :partial =>  'shared/calander'%>-->
 		<!--<%= render :partial =>  'shared/slideshow'%> 
 		<%= render   'layouts/messages'%>	-->
 		<%= yield %>
@@ -24,6 +24,7 @@
 		<!--main calender set (include everything concerning calender)-->
 		
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= yield :javascripts %>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
  		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

@@ -370,5 +370,27 @@ td.course_feedback{
   text-decoration:none;
 }
 
+.pag_container{
+  display: inline;
+}
 
+.pag_block{
+  
+  text-decoration:none;
+  display: inline;
+  height: 28px;
+  font-size: 20px;
+  font-weight: 200;
+  font-family: SimSun;
+  color: #333333;
+}
+
+.pag_block:hover{
+  text-decoration:none;
+  color: #333333;
+}
+
+a{
+    color:#333333;
+}
 

@@ -1,9 +1,5 @@
-<p>
-<%= link_to t('Back to Course Index'), courses_path, :class => "btn btn-info" %>
-</p>
-
 <div class = "show_course_container">
-	
+		
 		<div class = "course_title"> <%= @course.name %> </div>
 		<div class = "course_instructor"> <%= @course.instructor %>
 </div>
@@ -50,6 +46,8 @@
 				<%= link_to t('Write yourself'), new_course_feedback_path(@course), style: "color: #333333;" %>
 			<% end %>
 		</div>
+		<div class = "course_feedback_back"> </div>
+		<%= link_to t('Back to Course Index'), courses_path, :class =>  "course_feedback_back_text" %>
 	
 </div>
 

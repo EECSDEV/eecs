@@ -1,0 +1,85 @@
+<div class = "show_user_container">
+	<div class = "course_feedback_back"> </div>
+	<%= link_to t('Back to User'), users_path(current_user), :class => "course_feedback_back_text", :method => :get %>
+	<div style="margin-bottom:5px;">
+	<%= t("Your Pastexams") %><%=":"%>
+	</div>
+	<table width="1" style="word-break:break-all" class="table table-hover">
+		<tr>
+			<th><%= t('Course Name')%></th>
+			<th><%= t('Year') %></th>
+			<th><%= t('Type') %></th>
+			<th><%= t('Download') %></th>
+			<th><%= t('Publish date') %></th>
+			<th><%= t('Description') %></th>
+			<th><%= t('Actions') %>
+		</tr>
+		<% current_user.pastexams.each do |pastexam| %>
+		  
+			<tr>
+				<td><%= link_to "#{pastexam.course.name} #{pastexam.course.instructor}", course_path(pastexam.course) %></td>
+				<td><%= pastexam.year %></td>
+			
+				<td>
+					<%= t(@type_list[pastexam.exam_type]) %>
+					<%= pastexam.which_time %>
+				</td>
+				<td><%= link_to image_tag('pastexam.png',height:'35px'), "/uploads/#{pastexam.id}" %></td>
+				<td><%= pastexam.created_at.to_date %></td>
+				<td><%= pastexam.description %></td>
+				  
+				<%if pastexam.user == current_user || current_user.is_admin>0%>
+					<td><%= link_to t('Delete'), course_pastexam_path(pastexam.course, pastexam),:method => :delete , data: { confirm: t('Are you sure') }%></td>
+				<%else%>
+					<td></td>
+				<% end %>
+				   
+			</tr>
+		<% end %>
+	</table>
+	<div style="margin-bottom:5px; margin-top:10px;">
+	<%= t("Your Feedbacks") %><%=":"%>
+	</div>
+	
+	
+	<table class="table table-hover">
+		<tr>
+			<th><%= t('Course Name')%></th>
+			<th><%= t('Year') %></th>
+			<th><%= t('Rating') %></th>
+			<th><%= t('Link') %></th>
+			<th><%= t('Publish date') %></th>
+			<th><%= t('View time') %></th>
+			<th><%= t('Actions') %></th>
+		</tr>
+		<% current_user.feedbacks.each do |feedback| %>
+			<tr>
+				<th>
+					<%= link_to "#{feedback.course.name} #{feedback.course.instructor}", course_path(feedback.course) %>
+				</th>
+				<th><%= feedback.year %></th>
+
+				<th><%= feedback.rating%></th>     
+				<th><%= link_to t('show feedback'), course_feedback_path(feedback.course, feedback) %></th>
+
+				<th><%= feedback.updated_at.to_date %></th>
+				<th><%= feedback.visit_time %></th>
+				<% if current_user == feedback.user || current_user.is_admin>0 %>
+					<th><%= link_to t('Delete'), course_feedback_path(feedback.course, feedback),
+										  :method => :delete , data: { confirm: t('Are you sure') }%></th>
+				<%else%>
+					<th></th>
+					<th></th>
+				<% end %>
+			</tr>
+			  
+		
+		<% end %>
+	</table>
+	
+	
+	
+	
+	
+	
+</div>
