@@ -62,6 +62,7 @@
   Points not enough: 積分不足
   New Feedback:  新增心得
   Back_to_Course: 回課程簡介
+  Back to Feedback: 回心得
 
   #show
   Back to Feedback Index: 回心得清單
@@ -162,6 +163,7 @@
   Point get when uploading a pastexam: 上傳一份考古題可以得到
   Point needed when browsing feedbacks:  想要瀏覽心得需要至少
   Point needed when downloading a pastexam:  下載一份考古題需要消耗
+  Points: 分
 
   #ADMIN
   Your account has not been approved by the administrator:  你的帳號還未被管理員開通，因此無法使用此功能

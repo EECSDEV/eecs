@@ -1,12 +1,13 @@
 function slideSwitch() {
   var $active = $('#slideshow .active');
 
-  if ($active.length == 0) $active = $('#slideshow > div:last');
+  if ($active.length == 0) $active = $('#slideshow > div:first');
 
   var $next = $active.next().length ? $active.next() : $('#slideshow > div:first');
 
   $active.addClass('last-active');
 
+ 
   $next.css({
       opacity: 0.0
     })
@@ -15,8 +16,7 @@ function slideSwitch() {
     }, 1000, function() {
       $next.addClass('active')
     });
-
-  $active.css({
+   $active.css({
       opacity: 1.0
     })
     .animate({
@@ -24,6 +24,7 @@ function slideSwitch() {
     }, 1400, function() {
       $active.removeClass('active last-active');
     });
+  
 
 
 }

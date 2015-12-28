@@ -11,8 +11,9 @@
 .home_slide{
   position:absolute;
   width:  100%;
-  height: 550px;
-  top: 90px;
+  height: 100%;
+  padding-top: 75px;
+  top: 0px;
   left: 0px;
   overflow:hidden;
 }
