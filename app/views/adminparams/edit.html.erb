@@ -1,22 +1,24 @@
-<% if current_user.is_admin > 0 %>
-<%= form_for @adminparam, :url => adminparams_path(@adminparam), :method=> :patch do |f| %>
-    <p>
-    <%= f.label :point_get_feedback, t("Point get when uploading a feedback") %>
-    <%= f.number_field :point_get_feedback %>
-    </p>
-    <p>
-    <%= f.label :point_get_pastexam, t("Point get when uploading a pastexam") %>
-    <%= f.number_field :point_get_pastexam %>
-    </p>
-    <p>
-    <%= f.label :point_need_feedback, t("Point needed when browsing feedbacks") %>
-    <%= f.number_field :point_need_feedback %>
-    </p>
-    <p>
-    <%= f.label :point_need_pastexam, t("Point needed when downloading a pastexam") %>
-    <%= f.number_field :point_need_pastexam %>
-    </p>
-    <%= f.submit t("Update") %>
-<% end %>
-<%= button_to t("Back") ,{ :controller=>'adminparams', :action=> 'show', :id=> @adminparam }, :method => 'get'%>
-<% end %>
+<div class = "show_course_container">
+	<% if current_user.is_admin > 0 %>
+	<%= form_for @adminparam, :url => adminparams_path(@adminparam), :method=> :patch do |f| %>
+		<p>
+		<%= f.label :point_get_feedback, t("Point get when uploading a feedback") %>
+		<%= f.number_field :point_get_feedback %>
+		</p>
+		<p>
+		<%= f.label :point_get_pastexam, t("Point get when uploading a pastexam") %>
+		<%= f.number_field :point_get_pastexam %>
+		</p>
+		<p>
+		<%= f.label :point_need_feedback, t("Point needed when browsing feedbacks") %>
+		<%= f.number_field :point_need_feedback %>
+		</p>
+		<p>
+		<%= f.label :point_need_pastexam, t("Point needed when downloading a pastexam") %>
+		<%= f.number_field :point_need_pastexam %>
+		</p>
+		<%= f.submit t("Update") %>
+	<% end %>
+	<%= button_to t("Back") ,{ :controller=>'adminparams', :action=> 'show', :id=> @adminparam }, :method => 'get'%>
+	<% end %>
+</div>

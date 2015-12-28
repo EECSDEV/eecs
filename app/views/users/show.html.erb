@@ -57,7 +57,7 @@
 
 
 
-<% if @user == current_user || !@user || current_user.is_admin == 2%> 
+<% if @user == current_user || !@user%> 
 	<div class = "edit_container">
 	  <%= link_to t("Edit"), edit_user_registration_path, :class => "edit_container_in"%>
 	</div>
