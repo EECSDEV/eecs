@@ -11,8 +11,18 @@
 		</tr>
 		<tr>
 			<td class = "course_show"> <%= t("Average Rating") %></td> 
-			<th class = "course_show"> <%= format("%.2f",@average_rate).to_f  %></th>
-		</tr
+			<th class = "course_show"> 
+			
+			<%= format("%.2f",@average_rate).to_f  %> 
+			
+			
+		</tr>
+		<tr>
+			<td class = "course_show"> <%= " " %></td> 
+			<th class = "course_show"> 
+			<%= pie_chart @average_list, height: "220px", width: "240px",library: {backgroundColor: "#CCCCCC"} %></th>
+			
+		</tr>
 		<tr>
 			<td class = "course_show"> <%= t("Course_Description") %> </td>
 			<th class = "course_show"> <%= simple_format(@course.description) %> </th>

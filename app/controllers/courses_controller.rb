@@ -53,14 +53,32 @@ class CoursesController < ApplicationController
     if not @course.feedbacks.count == 0 
         @average_rate = @course.feedbacks.average(:rating)
     end
+	@average_list = {
+	'1' + t('Points')=>@course.feedbacks.where(:rating => 1).count, 
+	'2' + t('Points')=>@course.feedbacks.where(:rating => 2).count,
+	'3' + t('Points')=>@course.feedbacks.where(:rating => 3).count, 
+	'4' + t('Points')=>@course.feedbacks.where(:rating => 4).count, 
+	'5' + t('Points')=>@course.feedbacks.where(:rating => 5).count, 
+	'6' + t('Points')=>@course.feedbacks.where(:rating => 6).count, 
+	'7' + t('Points')=>@course.feedbacks.where(:rating => 7).count, 
+	'8' + t('Points')=>@course.feedbacks.where(:rating => 8).count, 
+	'9' + t('Points')=>@course.feedbacks.where(:rating => 9).count, 
+	'10' + t('Points')=>@course.feedbacks.where(:rating => 10).count
+	}
+	
+	
+	
     @grade = grade_selector[@course.grade]
     if not @course.feedbacks.count == 0
         @hot_article = @course.feedbacks.order("visit_time DESC").first
     else
         @hot_article = nil
     end
+	
+	
     
   end
+ 
   
   def destroy
     #@course = Course.find(params[:id])

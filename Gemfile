@@ -100,3 +100,8 @@ gem 'yaml_db'
 gem "rails-i18n"
 
 gem 'devise'
+
+gem 'd3-rails'
+gem 'd3js-rails'
+gem 'chartkick'
+gem "highcharts-rails", "~> 3.0.0"
